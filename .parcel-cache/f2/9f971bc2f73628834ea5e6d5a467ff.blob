@@ -15,12 +15,14 @@ body {
   color: #fff;
   line-height: 1.9;
   max-height: 100vh;
-  background-image: url(bg-desktop-light.7f5c61f1.jpg);
+  background-image: url(9d15dbe1bd9daebadfeb9fc230e9618b);
+  /* background-position-y: ; */
+  /* background-size: cover; */
   background-size: contain;
   background-repeat: repeat-x;
 }
 .dark {
-  background-image: url(bg-desktop-dark.e50e3e8f.jpg);
+  background-image: url(e14e5629a20354b6ff1868bf3227b637);
   /* background-position-y: ; */
   background-size: contain;
   background-repeat: repeat-x;
@@ -53,14 +55,14 @@ body {
 }
 
 .toggle-theme-1 {
-  background-image: url(icon-moon.990baf19.svg);
+  background-image: url(fe70734080a352cee62ef13079d96bbb);
   background-size: cover;
   width: 35px;
   height: 35px;
 }
 
 .toggle-theme-2 {
-  background-image: url(icon-sun.c636c657.svg);
+  background-image: url(029ea25d4cd9b42081a0ea63a7394bf5);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -111,6 +113,8 @@ body {
   color: hsl(235, 19%, 35%);
   margin-top: 10px;
   list-style-type: none;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 .todo-item {
@@ -259,22 +263,19 @@ p {
   display: flex;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 40px) {
   body {
-    background-image: url(bg-mobile-light.c5e09a40.jpg);
+    background-image: url(b4a70a2d7c5435404df45d10256dac3c);
     font-size: 15px;
   }
   .dark {
-    background-image: url(bg-mobile-dark.9a76d70a.jpg);
+    background-image: url(7b10ee47c94335bacfaefea30b0f7d4d);
   }
   .area {
     max-width: 85%;
   }
   .box {
-    width: 80%;
-  }
-  .empty-state{
-    padding: 10px;
+    max-width: 80%;
   }
 
   .list-footer {
@@ -285,5 +286,3 @@ p {
     font-size: 10px;
   }
 }
-
-/*# sourceMappingURL=style.72da8192.css.map */

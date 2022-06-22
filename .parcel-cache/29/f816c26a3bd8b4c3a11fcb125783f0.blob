@@ -15,12 +15,12 @@ body {
   color: #fff;
   line-height: 1.9;
   max-height: 100vh;
-  background-image: url(bg-desktop-light.7f5c61f1.jpg);
+  background-image: url(d6219cedb82a71c958e721ab8bcbf9d7);
   background-size: contain;
   background-repeat: repeat-x;
 }
 .dark {
-  background-image: url(bg-desktop-dark.e50e3e8f.jpg);
+  background-image: url(81596604a1bea062931ead0395d3d741);
   /* background-position-y: ; */
   background-size: contain;
   background-repeat: repeat-x;
@@ -53,14 +53,14 @@ body {
 }
 
 .toggle-theme-1 {
-  background-image: url(icon-moon.990baf19.svg);
+  background-image: url(1f6bd879da11ecc48b6e4a95d1e4741c);
   background-size: cover;
   width: 35px;
   height: 35px;
 }
 
 .toggle-theme-2 {
-  background-image: url(icon-sun.c636c657.svg);
+  background-image: url(b3994b56fc29579264a9b1e8ea88e34a);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -261,20 +261,20 @@ p {
 
 @media screen and (max-width: 450px) {
   body {
-    background-image: url(bg-mobile-light.c5e09a40.jpg);
+    background-image: url(671276beee6310b67a52d167398f2002);
     font-size: 15px;
   }
   .dark {
-    background-image: url(bg-mobile-dark.9a76d70a.jpg);
+    background-image: url(d2bcab49460aba8124b5cae8e1308dc1);
   }
   .area {
     max-width: 85%;
   }
   .box {
-    width: 80%;
+    max-width: 80%;
   }
   .empty-state{
-    padding: 10px;
+    padding: 20px;
   }
 
   .list-footer {
@@ -285,5 +285,3 @@ p {
     font-size: 10px;
   }
 }
-
-/*# sourceMappingURL=style.72da8192.css.map */

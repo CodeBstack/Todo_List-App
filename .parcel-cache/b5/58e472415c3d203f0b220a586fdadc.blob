@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.4a50bfe8.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./src/style.css" />
-    <script defer src="./src/controller.js"></script>
+    <link rel="stylesheet" href="/style.72da8192.css">
+    <script defer="" src="/controller.fdb486cc.js"></script>
 
     <title>Frontend Mentor | Todo app</title>
 
@@ -40,12 +32,7 @@
           </div>
 
           <form class="create-todo form">
-            <input
-              autofocus
-              type="text"
-              placeholder="Create a todo..."
-              class="create-todo__field form__input"
-            />
+            <input autofocus="" type="text" placeholder="Create a todo..." class="create-todo__field form__input">
           </form>
         </div>
         <div class="box">
@@ -71,11 +58,7 @@
 
       <div class="attribution">
         Challenge by
-        <a
-          href="https://www.frontendmentor.io?ref=challenge"
-          target="_blank"
-          >Frontend Mentor</a
-        >. Coded by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
         <a href="https://www.linkedin.com/in/samuelsunmonu">CodeBstack</a>.
       </div>
     </section>

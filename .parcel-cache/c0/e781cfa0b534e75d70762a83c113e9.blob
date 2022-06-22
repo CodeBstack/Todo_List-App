@@ -273,9 +273,9 @@ p {
   .box {
     width: 80%;
   }
-  .empty-state{
-    padding: 10px;
-  }
+  /* .empty-state{
+    padding: 20px;
+  } */
 
   .list-footer {
     flex-basis: 10%;

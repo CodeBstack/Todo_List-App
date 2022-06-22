@@ -16,6 +16,8 @@ body {
   line-height: 1.9;
   max-height: 100vh;
   background-image: url(bg-desktop-light.7f5c61f1.jpg);
+  /* background-position-y: ; */
+  /* background-size: cover; */
   background-size: contain;
   background-repeat: repeat-x;
 }
@@ -111,6 +113,8 @@ body {
   color: hsl(235, 19%, 35%);
   margin-top: 10px;
   list-style-type: none;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 .todo-item {
@@ -259,7 +263,7 @@ p {
   display: flex;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 40px) {
   body {
     background-image: url(bg-mobile-light.c5e09a40.jpg);
     font-size: 15px;
@@ -271,10 +275,7 @@ p {
     max-width: 85%;
   }
   .box {
-    width: 80%;
-  }
-  .empty-state{
-    padding: 10px;
+    max-width: 80%;
   }
 
   .list-footer {

@@ -16,8 +16,6 @@ body {
   line-height: 1.9;
   max-height: 100vh;
   background-image: url(../images/bg-desktop-light.jpg);
-  /* background-position-y: ; */
-  /* background-size: cover; */
   background-size: contain;
   background-repeat: repeat-x;
 }
@@ -276,7 +274,7 @@ p {
     width: 80%;
   }
   .empty-state{
-    padding: 20px;
+    padding: 10px;
   }
 
   .list-footer {

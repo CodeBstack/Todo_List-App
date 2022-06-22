@@ -268,13 +268,13 @@ p {
     background-image: url(bg-mobile-dark.9a76d70a.jpg);
   }
   .area {
-    max-width: 85%;
+    width: 85%;
   }
   .box {
-    width: 80%;
+    max-width: 80%;
   }
   .empty-state{
-    padding: 10px;
+    padding: 20px;
   }
 
   .list-footer {
