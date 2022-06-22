@@ -15,14 +15,14 @@ body {
   color: #fff;
   line-height: 1.9;
   max-height: 100vh;
-  background-image: url(../images/bg-desktop-light.jpg);
+  background-image: url(bg-desktop-light.7f5c61f1.jpg);
   /* background-position-y: ; */
   /* background-size: cover; */
   background-size: contain;
   background-repeat: repeat-x;
 }
 .dark {
-  background-image: url(../images/bg-desktop-dark.jpg);
+  background-image: url(bg-desktop-dark.e50e3e8f.jpg);
   /* background-position-y: ; */
   background-size: contain;
   background-repeat: repeat-x;
@@ -55,14 +55,14 @@ body {
 }
 
 .toggle-theme-1 {
-  background-image: url(../images/icon-moon.svg);
+  background-image: url(icon-moon.990baf19.svg);
   background-size: cover;
   width: 35px;
   height: 35px;
 }
 
 .toggle-theme-2 {
-  background-image: url(../images/icon-sun.svg);
+  background-image: url(icon-sun.c636c657.svg);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -263,11 +263,11 @@ p {
 
 @media screen and (max-width: 450px) {
   body {
-    background-image: url(../images/bg-mobile-light.jpg);
+    background-image: url(bg-mobile-light.c5e09a40.jpg);
     font-size: 15px;
   }
   .dark {
-    background-image: url(../images/bg-mobile-dark.jpg);
+    background-image: url(bg-mobile-dark.9a76d70a.jpg);
   }
   .area {
     max-width: 85%;
@@ -287,3 +287,5 @@ p {
     font-size: 10px;
   }
 }
+
+/*# sourceMappingURL=style.72da8192.css.map */
