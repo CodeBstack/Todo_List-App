@@ -1,0 +1,20 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+  console.log(formInputValue);
+
+  if (formInputValue !== '') {
+    add;
+  }
+});
+
+const addTodo = function (inp) {
+  const todo = {
+    inputText,
+    id: Date.now()
+  };
+  todoList.push(todo);
+};

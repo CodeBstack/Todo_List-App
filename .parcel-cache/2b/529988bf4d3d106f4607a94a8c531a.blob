@@ -1,0 +1,61 @@
+const form = document.querySelector('.create-todo');
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+  render(todoItems);
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector('.create-todo__field'); //   console.log(form_input);
+
+  input = form_input.value.trim();
+  if (input !== '') addTodo(input);
+  form_input.value = '';
+});
+
+const render = function (todos) {
+  let html = '';
+  const lists = document.querySelector('.todo-lists');
+  todos.map((todo, i) => {
+    html += `
+      <li class="todo-list" id = "${todo.id}">
+      <button class="tick"></button>
+      <p>${todo.text}</p>
+      <button class="delete ${i}"></button>
+    </li>
+      `;
+  });
+  console.log(html);
+  lists.innerHTML = html;
+  return html;
+};
+
+const deleteTodo = function (i) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.splice(todo[i], 1);
+}; // deleteTodo(todoItems[])
+
+
+const delBtn = document.querySelector('.delete'); // const lists = document.querySelector('.todo-list');
+
+if (delBtn) {}
+
+delBtn.addEventListener('click', function (e) {
+  if (e.cutarget.contains('todo-list')) {
+    deleteTodo();
+  }
+
+  render(todoItems);
+});

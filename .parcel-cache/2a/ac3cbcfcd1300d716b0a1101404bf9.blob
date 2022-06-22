@@ -1,0 +1,67 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value; //   console.log(formInputValue);
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo);
+};
+
+const deleteTodo = function (key) {
+  console.log(todoList);
+  const i = todoList.findIndex(list => list.id === +key);
+  const todo = {
+    delete: true,
+    ...todoList[i]
+  };
+  console.log(todo, i);
+};
+
+const renderTodo = function (todo) {
+  console.log(todo);
+  const item = document.querySelector(`[data-key='${todo.id}']`);
+
+  if (todo.deleted) {
+    item.remove();
+  }
+
+  li = document.createElement('li');
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+    <div class = "todo-list" id ="${todo.id}">
+        <button class="tick"></button>
+        <p>${todo.inputText}</p>
+        <button class="delete"></button>
+    </div>
+    `;
+  list.append(li);
+};
+
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  if (e.target.classList.contains('tick')) {
+    document.querySelector('.todo-list').classList.toggle('completed');
+    document.querySelector('.tick').classList.toggle('ticked');
+  }
+
+  if (e.target.classList.contains('delete')) {
+    const listKey = e.target.parentElement.dataset.key;
+    console.log(listKey);
+  }
+});

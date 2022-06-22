@@ -1,0 +1,56 @@
+const btn = document.querySelector(".checks");
+const form = document.querySelector(".create-todo");
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+  renderTodo(todo);
+};
+
+btn.addEventListener("click", function () {
+  const todos = document.querySelector(".todo-list");
+  todos.classList.toggle("completed");
+  document.querySelector('.tick').style.display = 'none';
+});
+
+function renderTodo(todo) {
+  // Select the first element with a class of `js-todo-list`
+  const list = document.querySelector('.todo-lists'); // Use the ternary operator to check if `todo.checked` is true
+  // if so, assign 'done' to `isChecked`. Otherwise, assign an empty string
+
+  const isChecked = todo.checked ? 'done' : ''; // Create an `li` element and assign it to `node`
+
+  const node = document.createElement("li"); // Set the class attribute
+
+  node.setAttribute('class', `todo-item ${isChecked}`); // Set the data-key attribute to the id of the todo
+
+  node.setAttribute('data-key', todo.id); // Set the contents of the `li` element created above
+
+  node.innerHTML = `f="#delete-icon"></use></svg>
+      </button>
+
+    <li class="todo-list">
+        <button class="checks tick"></button>
+        <p>I want to jog around today</p>
+        <img class="cross" src="/images/icon-cross.svg" alt=""/>
+    </li>
+    `; // Append the element to the DOM as the last child of
+  // the element referenced by the `list` variable
+
+  list.append(node);
+}
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector(".create-todo__field").value; //   console.log(form_input);
+
+  input = form_input.trim();
+  if (input !== "") addTodo(input);
+  form_input.value = "";
+});

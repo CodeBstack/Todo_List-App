@@ -1,0 +1,5 @@
+const btn = document.querySelector(".checks");
+btn.addEventListener("click", function () {
+  const todos = document.querySelector(".todo-list");
+  todos.classList.toggle("completed");
+});

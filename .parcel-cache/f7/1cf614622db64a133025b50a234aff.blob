@@ -1,0 +1,61 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    checked: false,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo);
+}; // const deleteTodo = function (id) {
+//   const i = todoList.findIndex(todo => todo.id === id);
+//   console.log(i);
+//   //   todoList.splice(i, 1);
+// };
+// deleteTodo(todoList[0]);
+
+
+const renderTodo = function (todo) {
+  const list = document.querySelector('.todo-lists');
+  const isChecked = todo.checked ? 'ticked' : '';
+  li = document.createElement('li');
+  li.setAttribute('class', `todo-item ${isChecked}`);
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+    <div class = "todo-list" id ="${todo.id}">
+        <button class="tick"></button>
+        <p>${todo.inputText}</p>
+        <button class="delete"></button>
+    </div>
+    `;
+  list.append(li);
+};
+
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  if (e.target.classList.contains('tick')) {
+    document.querySelector('.todo-list').classList.toggle('completed');
+    document.querySelector('.tick').classList.toggle('ticked');
+  }
+
+  if (e.target.classList.contains('delete')) {
+    console.log('asdf');
+    const id = todoList.id;
+    deleteTodo(id);
+  }
+});

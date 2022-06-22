@@ -1,0 +1,31 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value; //   console.log(formInputValue);
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  console.log(todoList);
+};
+
+const renderTodo = function (todoList) {
+  list = document.querySelector('.todo-lists');
+  li = document.createElement('li');
+  console.log(li); //   list.append(li);
+};
+
+renderTodo();

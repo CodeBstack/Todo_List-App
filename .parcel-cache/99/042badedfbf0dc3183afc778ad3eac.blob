@@ -1,0 +1,123 @@
+form = document.querySelector('.form');
+formInput = document.querySelector('.form__input');
+list = document.querySelector('.todo-lists');
+all = document.querySelector('.all');
+active = document.querySelector('.active');
+completed = document.querySelector('.completed');
+let todoList = [];
+
+renderTodo = function (todo) {
+  list = document.querySelector('.todo-lists');
+  item = document.querySelector(`[data-key='${todo.id}']`);
+  counts = document.querySelector('.counts');
+  localStorage.setItem('todoItemsRef', JSON.stringify(todoList));
+
+  if (todo.deleted) {
+    item.remove();
+
+    if (todoList.length === 0) {
+      list.innerHTML = '';
+    }
+
+    return;
+  }
+
+  isChecked = todo.checked ? 'done' : '';
+  li = document.createElement('li');
+  li.setAttribute('class', `todo-item ${isChecked}`);
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+    <input id="${todo.id}" type="checkbox"/>
+    <label for="${todo.id}" class="tick js-tick"></label>
+    <span>${todo.inputText}</span>
+    <button class="delete">
+    </button>
+      `;
+  counts.innerHTML = `
+      <p class="counts">${todoList.length} items left</p>
+      
+      `;
+
+  if (item) {
+    list.replaceChild(li, item);
+  } else {
+    list.append(li);
+  } //   console.log(todo);
+
+};
+
+addTodo = function (inputText) {
+  todo = {
+    inputText,
+    checked: false,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo); //   console.log(todoList);
+};
+
+function deleteTodo(key) {
+  index = todoList.findIndex(item => item.id === +key);
+  todo = {
+    deleted: true,
+    ...todoList[index]
+  }; // remove the todo item from the array by filtering it out
+
+  todoList = todoList.filter(item => item.id !== +key);
+  renderTodo(todo);
+}
+
+toggle = function (key) {
+  index = todoList.findIndex(list => list.id === +key);
+  console.log(index);
+  todoList[index].checked = !todoList[index].checked;
+  renderTodo(todoList[index]);
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  if (e.target.classList.contains('tick')) {
+    itemKey = e.target.parentElement.dataset.key;
+    toggle(itemKey);
+  } // Delete task
+
+
+  if (e.target.classList.contains('delete')) {
+    itemKey = e.target.parentElement.dataset.key;
+    deleteTodo(itemKey);
+  }
+});
+all.addEventListener('click', function () {
+  console.log('all');
+});
+document.addEventListener('DOMContentLoaded', () => {
+  ref = localStorage.getItem('todoItemsRef');
+  console.log(ref);
+
+  if (ref) {
+    todoList = JSON.parse(ref);
+    todoList.forEach(t => {
+      renderTodo(t);
+    });
+  }
+});
+
+class App {
+  _form = document.querySelector('.form');
+  formInput = document.querySelector('.form__input');
+  list = document.querySelector('.todo-lists');
+  all = document.querySelector('.all');
+  active = document.querySelector('.active');
+  completed = document.querySelector('.completed');
+}

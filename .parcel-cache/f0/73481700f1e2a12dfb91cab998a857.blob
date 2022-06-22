@@ -1,0 +1,54 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+const data = {
+  todoList: [],
+  todo: {
+    inputText: formInput,
+    deleted: false,
+    id: Date.now()
+  }
+};
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(data.todo);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (todo) {
+  data.todo = todo;
+  todoList.push(todo);
+  console.log(todoList);
+  renderTodo(todo);
+};
+
+const renderTodo = function (todo) {
+  li = document.createElement('li');
+  li.innerHTML = `
+    <div class = "todo-list">
+        <button class="tick"></button>
+        <p>${todo}</p>
+        <button class="delete"></button>
+    </div>
+    `;
+  list.append(li);
+};
+
+list.addEventListener('click', function (e) {
+  el = document.querySelector('.todo-list'); // to mark completed task
+
+  if (e.target.classList.contains('tick')) {
+    document.querySelector('.todo-list').classList.toggle('completed');
+    document.querySelector('.tick').classList.toggle('ticked');
+  }
+
+  if (e.target.classList.contains('delete')) {
+    el.remove();
+  }
+});

@@ -1,0 +1,39 @@
+const btn = document.querySelector(".checks");
+const form = document.querySelector(".create-todo");
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+  render;
+}; // btn.addEventListener("click", function () {
+//   const todos = document.querySelector(".todo-list");
+//   todos.classList.toggle("completed");
+// });
+
+
+const render = function (todo) {
+  const lists = document.querySelector('.todo-lists');
+  node.innerHTML = `
+    <li class="todo-list">
+    <button class="checks tick"></button>
+    <p>I want to jog around today</p>
+    <img class="cross" src="/images/icon-cross.svg" alt="clear" />
+  </li>
+    `;
+  lists.append(node);
+};
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector(".create-todo__field").value; //   console.log(form_input);
+
+  input = form_input.trim();
+  if (input !== "") addTodo(input);
+  form_input.value = "";
+});

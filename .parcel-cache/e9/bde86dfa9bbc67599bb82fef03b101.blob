@@ -1,0 +1,22 @@
+const form = document.querySelector('.create-todo');
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+  render(todoItems);
+};
+
+const deleteTodo = function (i) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.splice(todo[i], 1);
+};

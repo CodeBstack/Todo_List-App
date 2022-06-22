@@ -1,0 +1,76 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+const all = document.querySelector('.all');
+const active = document.querySelector('.active');
+const completed = document.querySelector('.completed');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    checked: false,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo); //   console.log(todoList);
+};
+
+function deleteTodo(key) {
+  const index = todoList.findIndex(item => item.id === +key);
+  const todo = {
+    deleted: true,
+    ...todoList[index]
+  }; // remove the todo item from the array by filtering it out
+
+  todoList = todoList.filter(item => item.id !== +key);
+  renderTodo(todo);
+}
+
+const toggle = function (key) {
+  const index = todoList.findIndex(list => list.id === +key);
+  console.log(index);
+  todoList[index].checked = !todoList[index].checked;
+  renderTodo(todoList[index]);
+};
+
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  if (e.target.classList.contains('tick')) {
+    const itemKey = e.target.parentElement.dataset.key;
+    toggle(itemKey);
+  } // Delete task
+
+
+  if (e.target.classList.contains('delete')) {
+    const itemKey = e.target.parentElement.dataset.key;
+    deleteTodo(itemKey);
+  }
+
+  if (e.target.classList.contains('cur-click') && e.target.classList.contains('all')) {}
+});
+all.addEventListener('click', function () {
+  console.log('all');
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const ref = localStorage.getItem('todoItemsRef');
+  console.log(ref);
+
+  if (ref) {
+    todoList = JSON.parse(ref);
+    todoList.forEach(t => {
+      renderTodo(t);
+    });
+  }
+});

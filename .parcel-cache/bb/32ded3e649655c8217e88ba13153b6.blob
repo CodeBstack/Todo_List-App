@@ -1,0 +1,2 @@
+const form = document.querySelector('.form');
+const form_input = document.querySelector('.form__');

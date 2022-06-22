@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.4a50bfe8.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.72da8192.css">
+    <script defer="" src="/controller.fdb486cc.js"></script>
+
+    <title>Frontend Mentor | Todo app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style></style>
+  </head>
+  <body>
+    <section class="contatiner">
+      <div class="header">
+        <img src="/bg-desktop-light.7f5c61f1.jpg" alt="bg-image-light">
+      </div>
+      <div class="to-do_preview">
+        <div class="preview-heading">
+          <h3>TODO</h3>
+          <img src="/icon-moon.990baf19.svg" alt="moon" width="40px" height="40px">
+        </div>
+
+        <form class="create-todo">
+          <label><img src="/icon-check.4a7ae22a.svg" alt=""></label>
+          <input autofocus="" type="text" placeholder="Create a todo..." class="create-todo__field">
+        </form>
+
+        <div class="box">
+          <ul class="todo-lists">
+            <li class="todo-list completed">
+              <div>
+                <img src="/icon-checkbox.29ed40a9.svg" alt="uncheck" style="display: " none";="">
+                <img class="check" src="/icon-check.4a7ae22a.svg" alt="check">
+              </div>
+
+              <p>I want to jog around today</p>
+              <img class="cross" src="/icon-cross.cd569fc0.svg" alt="clear">
+            </li>
+            <!-- <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li>
+            <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li>
+            <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li>
+            <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li>
+            <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li>
+            <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li>
+            <li class="todo-list">
+              <img src="/images/icon-check.svg" alt="" />
+              <p>I want to jog round today</p>
+              <img src="/images/icon-cross.svg" alt="" />
+            </li> -->
+          </ul>
+          <div class="list-footer">
+            <p>8 items left</p>
+            <div class="footer-nav">
+              <a href="#" class="footer-nav-1">All</a>
+              <a href="#" class="footer-nav-1">Active</a>
+              <a href="#" class="footer-nav-1">Completed</a>
+            </div>
+            <a href="#" class="footer-nav-1 clear">Clear Completed</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>

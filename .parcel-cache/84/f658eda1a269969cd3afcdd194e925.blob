@@ -1,0 +1,6 @@
+const form = document.querySelector('.form');
+const form_input = document.querySelector('.form__input');
+let todoLists;
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+});

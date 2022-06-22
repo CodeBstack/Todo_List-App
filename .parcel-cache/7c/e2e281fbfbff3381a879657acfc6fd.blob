@@ -1,0 +1,53 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value; //   console.log(formInputValue);
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo);
+};
+
+const renderTodo = function (todo) {
+  console.log(todo);
+  li = document.createElement('li');
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+    <div class = "todo-list" id ="${todo.id}">
+        <button class="tick"></button>
+        <p>${todo.inputText}</p>
+        <button class="delete"></button>
+    </div>
+    `;
+  list.append(li);
+};
+
+const deleteTodo = function (key) {
+  const i = todoList.findIndex(list => list.id === +key);
+  const todo = {
+    delete: true,
+    ...todoList[i]
+  };
+  console.log(todo);
+};
+
+list.addEventListener('click', function (e) {
+  if (e.target.classList.contains('delete')) {
+    const listKey = e.target.parentElement.dataset.key;
+  }
+});

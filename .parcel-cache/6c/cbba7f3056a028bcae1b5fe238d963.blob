@@ -1,0 +1,147 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+const navFooter = document.querySelector('.footer-nav'); // const active = document.querySelector('.active');
+// const completed = document.querySelector('.completed');
+
+const toggleThemeBtn = document.querySelector('.toggle-theme');
+const toggleThemeBtn2 = document.querySelector('.toggle-theme-2'); // class="toggle-theme"
+
+toggleThemeBtn.addEventListener('click', function () {
+  document.querySelector('body').classList.toggle('dark');
+  document.querySelector('.box').classList.toggle('dark-box');
+  toggleThemeBtn.classList.toggle('.togg');
+});
+let todoList = [];
+
+const renderTodo = function (todo) {
+  const list = document.querySelector('.todo-lists');
+  const item = document.querySelector(`[data-key='${todo.id}']`);
+  localStorage.setItem('todoItemsRef', JSON.stringify(todoList));
+
+  if (todo.deleted) {
+    item.remove();
+
+    if (todoList.length === 0) {
+      list.innerHTML = '';
+    }
+
+    return;
+  }
+
+  const isChecked = todo.checked ? 'done' : '';
+  li = document.createElement('li');
+  li.setAttribute('class', `todo-item ${isChecked}`);
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+    <input id="${todo.id}" type="checkbox"/>
+    <label for="${todo.id}" class="tick js-tick"></label>
+    <span>${todo.inputText}</span>
+    <button class="delete">
+    </button>
+      `;
+
+  if (item) {
+    list.replaceChild(li, item);
+  } else {
+    list.append(li);
+  } //   console.log(todo);
+
+};
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    checked: false,
+    id: Date.now()
+  };
+  const counts = document.querySelector('.counts');
+  todoList.push(todo);
+  counts.innerHTML = `
+      <p class="counts">${todoList.length} items left</p>
+
+      `;
+  renderTodo(todo); //   console.log(todoList);
+};
+
+const deleteTodo = function (key) {
+  const index = todoList.findIndex(item => item.id === +key);
+  const todo = {
+    deleted: true,
+    ...todoList[index]
+  };
+  console.log(todo);
+  todoList = todoList.filter(item => item.id !== +key);
+  const counts = document.querySelector('.counts');
+  counts.innerHTML = `
+      <p class="counts">${todoList.length} items left</p>
+
+      `;
+  renderTodo(todo);
+};
+
+const toggle = function (key) {
+  const index = todoList.findIndex(list => list.id === +key); //   console.log(index);
+
+  todoList[index].checked = !todoList[index].checked;
+  renderTodo(todoList[index]);
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  if (e.target.classList.contains('tick')) {
+    const itemKey = e.target.parentElement.dataset.key;
+    console.log(itemKey);
+    toggle(itemKey);
+  } // Delete task
+
+
+  if (e.target.classList.contains('delete')) {
+    const itemKey = e.target.parentElement.dataset.key;
+    deleteTodo(itemKey);
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const ref = localStorage.getItem('todoItemsRef');
+  console.log(ref);
+
+  if (ref) {
+    todoList = JSON.parse(ref);
+    todoList.forEach(t => {
+      renderTodo(t);
+    });
+    const counts = document.querySelector('.counts');
+    counts.innerHTML = `
+    <p class="counts">${todoList.length} items left</p>
+
+    `;
+  }
+}); // const completedTodo = function (key) {
+//   //   const index = todoList.findIndex(item => item.id === +key);
+//   todoList.forEach((i) => {
+//     const todo = {
+//       completed: [],
+//       ...todoList[i],
+//     };
+//     console.log(todo);
+//   });
+// };
+// navFooter.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('completed')) {
+//     const itemKey = e.target.parentElement.dataset.key;
+//     // console.log(e.target);
+//     // console.log(itemKey);
+//     // completedTodo(itemKey);
+//   }
+// });

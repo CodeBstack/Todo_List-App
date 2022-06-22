@@ -1,0 +1,21 @@
+const form = document.querySelector('.create-todo');
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector('.create-todo__field'); //   console.log(form_input);
+
+  input = form_input.trim();
+  if (input !== '') addTodo(input);
+  form_input = '';
+});

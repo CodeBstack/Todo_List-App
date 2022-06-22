@@ -1,0 +1,44 @@
+const btn = document.querySelector(".checks");
+const form = document.querySelector(".create-todo");
+let todoItems = [];
+
+function renderTodo(todo) {
+  const list = document.querySelector(".todo-lists");
+  const isChecked = todo.checked ? "done" : "";
+  const node = document.createElement("li");
+  node.setAttribute("class", `todo-item ${isChecked}`);
+  node.setAttribute("data-key", todo.id);
+  node.innerHTML = `
+    <li class="todo-list" id ="${todo.id}">
+        <button class="tick"></button>
+        <p>${todo.text}</p>
+        <button class="delete"></button>
+    </li>
+    `;
+  list.append(node);
+}
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+  renderTodo(todo);
+}; // btn.addEventListener("click", function () {
+//   const todos = document.querySelector(".todo-list");
+//     todos.classList.toggle("completed");
+//     document.querySelector('.tick').style.display ='none'
+// });
+
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector(".create-todo__field").value; //   console.log(form_input);
+
+  input = form_input.trim();
+  if (input !== "") addTodo(input);
+  form_input.value = "";
+});

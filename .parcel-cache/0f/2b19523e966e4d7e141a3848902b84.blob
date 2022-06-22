@@ -1,0 +1,81 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    checked: false,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo);
+}; // const deleteTodo = function (id) {
+//   const i = todoList.findIndex(todo => todo.id === id);
+//   console.log(i);
+//   //   todoList.splice(i, 1);
+// };
+// deleteTodo(todoList[0]);
+
+
+const renderTodo = function (todo) {
+  const list = document.querySelector('.todo-lists');
+  const tick = document.querySelector('.tick');
+  const item = document.querySelector(`[data-key='${todo.id}']`);
+  const isChecked = todo.checked ? 'done' : '';
+  li = document.createElement('li');
+  li.setAttribute('class', ` ${isChecked}`);
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+  <input id="${todo.id}" type="checkbox"/>
+  <label for="${todo.id}" class="tick js-tick"></label>
+  <span>${todo.inputText}</span>
+  <button class="delete-todo js-delete-todo">
+  </button>
+    `;
+  console.log(li); //   list.append(li);
+
+  if (item) {
+    // replace it
+    list.replaceChild(li, item);
+  } else {
+    // otherwise append it to the end of the list
+    list.append(li);
+  }
+};
+
+const toggle = function (key) {
+  const index = todoList.findIndex(list => list.id === +key);
+  console.log(index);
+  todoList[index].checked = !todoList[index].checked;
+  renderTodo(todoList[index]);
+};
+
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  //   console.log(e.target);
+  if (e.target.classList.contains('tick')) {
+    console.log(e.target);
+    const itemKey = e.target.parentElement.dataset.key; // console.log(itemKey);
+
+    toggle(itemKey); // document.querySelector('.tick').classList.toggle('ticked');
+  }
+
+  if (e.target.classList.contains('delete')) {
+    console.log('asdf');
+    const id = todoList.id;
+    deleteTodo(id);
+  }
+});

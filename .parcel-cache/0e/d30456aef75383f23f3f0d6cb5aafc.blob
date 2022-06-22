@@ -1,0 +1,11 @@
+const btn = document.querySelector(".checks");
+const form = document.querySelector(".create-todo");
+const form_input = document.querySelector(".create-todo__field").textContent;
+btn.addEventListener("click", function () {
+  const todos = document.querySelector(".todo-list");
+  todos.classList.toggle("completed");
+});
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log(form_input);
+});

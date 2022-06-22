@@ -1,0 +1,34 @@
+const form = document.querySelector('.create-todo');
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector('.create-todo__field'); //   console.log(form_input);
+
+  input = form_input.value.trim();
+  if (input !== '') addTodo(input);
+  form_input.value = '';
+});
+
+const render = function (todos) {
+  let html = '';
+  todos.forEach(todo => {
+    html += `
+      <li class="todo-list">
+      <button class="tick"></button>
+      <p>  ${todo.text} </p>
+      <button class="delete"></button>
+    </li>
+      `;
+  });
+};

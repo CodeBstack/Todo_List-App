@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* font-size: 62.5%; */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 100%;
+  /* background-image: url(/images/bg-desktop-light.jpg); */
+}
+.header {
+  max-height: 30%;
+  background-image: url(9d15dbe1bd9daebadfeb9fc230e9618b);
+  background-position: center;
+  background-size: cover;
+  font-size: 20px;
+}
+.to-do_preview{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

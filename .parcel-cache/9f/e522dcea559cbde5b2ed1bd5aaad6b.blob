@@ -1,0 +1,64 @@
+const form = document.querySelector('.create-todo');
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  renderTodo(todoItems);
+}; // const previewMarkup = function (todoItems) {
+//   console.log(todoItems);
+//   //   return todoItems.forEach(
+//   //     todoItem => `
+//   //         <li class="todo-list" id ="${todoItem.id}">
+//   //             <button class="tick"></button>
+//   //             <p>${todoItem.text}</p>
+//   //             <button class="delete"></button>
+//   //         </li>
+//   //     `
+//   //   );
+// //   return todoItems.map(
+// //     todoItem => `
+// //       <li class="todo-list" id ="${todoItem.id}">
+// //         <button class="tick"></button>
+// //         <p>${todoItem.text}</p>
+// //         <button class="delete"></button>
+// //     </li>
+// //       `
+// //   );
+//   //   return
+// };
+
+
+const renderTodo = function (todos) {
+  const list = document.querySelector('.todo-lists');
+  const markup = previewMarkup(todos); //   list.innerHTML = '';
+
+  console.log(markup, 'todo'); //   list.innerHTML = markup;
+  //   list.insertAdjacentElement('afterbegin', markup);
+}; // const listItem = document.querySelector('.todo-lists');
+// listItem.addEventListener('click', function (e) {
+//   const todos = document.querySelector('.todo-list');
+//   const tickBtn = document.querySelector('.tick');
+//   //   const itemKey = listItem.dataset.key;
+//   //     console.log(itemKey);
+//   todos.classList.toggle('completed');
+//   tickBtn.classList.toggle('ticked');
+//   //   if (!e.target.classList.contains("delete")) {
+//   //     todos.classList.toggle("completed");
+//   //     tickBtn.classList.toggle("ticked");
+//   //   }
+// });
+
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector('.create-todo__field').value; //   console.log(form_input);
+
+  input = form_input.trim();
+  if (input !== '') addTodo(input);
+  form_input.value = '';
+});

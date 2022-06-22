@@ -1,0 +1,70 @@
+const form = document.querySelector(".create-todo");
+let todoItems = [];
+
+const addTodo = function (text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now()
+  };
+  todoItems.push(todo);
+  console.log(todoItems);
+  renderTodo(todo);
+}; // function toggleDone(key) {
+//     // findIndex is an array method that returns the position of an element
+//     // in the array.
+//     const index = todoItems.findIndex((item) => item.id === Number(key));
+//     // Locate the todo item in the todoItems array and set its checked
+//     // property to the opposite. That means, `true` will become `false` and vice
+//     // versa.
+//       console.log(index);
+//     todoItems[index].checked = !todoItems[index].checked;
+//     renderTodo(todoItems[index]);
+//   }
+// // Select the entire list
+// const list = document.querySelector(".todo-lists");
+// // Add a click event listener to the list and its children
+// list.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("todo-list")) {
+//       const itemKey = event.target.parentElement.dataset.key;
+//       console.log(itemKey);
+//     toggleDone(itemKey);
+//   }
+// });
+
+
+const renderTodo = function (todo) {
+  const list = document.querySelector(".todo-lists");
+  const isChecked = todo.checked ? "done" : "";
+  const node = document.createElement("li");
+  node.setAttribute("class", `todo-item ${isChecked}`);
+  node.setAttribute("data-key", todo.id);
+  node.innerHTML = `
+    <li class="todo-list" id ="${todo.id}">
+        <button class="tick"></button>
+        <p>${todo.text}</p>
+        <button class="delete"></button>
+    </li>
+    `;
+  list.append(node);
+};
+
+const listItem = document.querySelector(".todo-list");
+listItem.addEventListener("click", function (e) {
+  const todos = document.querySelector(".todo-list");
+  const tickBtn = document.querySelector(".tick");
+  console.log(parentEl);
+
+  if (!e.target.classList.contains('delete')) {
+    todos.classList.toggle("completed");
+    tickBtn.classList.toggle("ticked");
+  }
+});
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form_input = document.querySelector(".create-todo__field").value; //   console.log(form_input);
+
+  input = form_input.trim();
+  if (input !== "") addTodo(input);
+  form_input.value = "";
+});

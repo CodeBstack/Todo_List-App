@@ -1,0 +1,5 @@
+const form = document.querySelector('.form');
+const form_input = document.querySelector('.form__input');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+});

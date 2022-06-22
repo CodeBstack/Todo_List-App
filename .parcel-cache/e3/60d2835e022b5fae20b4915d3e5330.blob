@@ -1,0 +1,92 @@
+const form = document.querySelector('.form');
+const formInput = document.querySelector('.form__input');
+const list = document.querySelector('.todo-lists');
+let todoList = [];
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  formInputValue = formInput.value;
+
+  if (formInputValue !== '') {
+    addTodo(formInputValue);
+  }
+
+  formInput.value = '';
+  formInput.focus();
+});
+
+const addTodo = function (inputText) {
+  const todo = {
+    inputText,
+    checked: false,
+    id: Date.now()
+  };
+  todoList.push(todo);
+  renderTodo(todo);
+  console.log(todoList);
+};
+
+function deleteTodo(key) {
+  // find the corresponding todo object in the todoItems array
+  const index = todoList.findIndex(item => item.id === Number(key)); // Create a new object with properties of the current todo item
+  // and a `deleted` property which is set to true
+
+  const todo = {
+    deleted: true,
+    ...todoList[index]
+  }; // remove the todo item from the array by filtering it out
+
+  todoList = todoList.filter(item => item.id !== Number(key));
+  renderTodo(todo);
+}
+
+const renderTodo = function (todo) {
+  const list = document.querySelector('.todo-lists');
+  const item = document.querySelector(`[data-key='${todo.id}']`);
+
+  if (todo.deleted) {
+    item.remove();
+    return;
+  }
+
+  const isChecked = todo.checked ? 'done' : '';
+  li = document.createElement('li');
+  li.setAttribute('class', `todo-item ${isChecked}`);
+  li.setAttribute('data-key', todo.id);
+  li.innerHTML = `
+  <input id="${todo.id}" type="checkbox"/>
+  <label for="${todo.id}" class="tick js-tick"></label>
+  <span>${todo.inputText}</span>
+  <button class="delete">
+  </button>
+    `; //   console.log(li);
+  //   list.append(li);
+
+  if (item) {
+    list.replaceChild(li, item);
+  } else {
+    list.append(li);
+  }
+
+  console.log(todo);
+};
+
+const toggle = function (key) {
+  const index = todoList.findIndex(list => list.id === +key);
+  console.log(index);
+  todoList[index].checked = !todoList[index].checked;
+  renderTodo(todoList[index]);
+};
+
+list.addEventListener('click', function (e) {
+  // to mark completed task
+  if (e.target.classList.contains('tick')) {
+    const itemKey = e.target.parentElement.dataset.key;
+    toggle(itemKey);
+  } // Delete task
+
+
+  if (e.target.classList.contains('delete')) {
+    const itemKey = e.target.parentElement.dataset.key;
+    deleteTodo(itemKey);
+  }
+});
