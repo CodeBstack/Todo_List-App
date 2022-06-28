@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- displays site properly based on user's device -->
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.4a50bfe8.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="8d3bb340a0c6f2bf88ab1c35660940f5">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="64890df949e24b5c782b8cc8544e9ec5">
+    <link rel="preconnect" href="da9afb61e15e5caa1c8af2c6f046c478" crossorigin="">
+    <link href="52875ffe89fcf76d7db69b9d953779c9" rel="stylesheet">
 
-    <link rel="stylesheet" href="/style.72da8192.css">
-    <script defer="" src="/To-do%20List.3706b05f.js"></script>
+    <link rel="stylesheet" href="12adf0669173bd54a321da4d94777e24">
+    <script defer="" src="fc7eca939249dd8ec8722e87984f20fd"></script>
 
     <title>Frontend Mentor | Todo app</title>
   </head>
@@ -54,8 +54,8 @@
 
       <div class="attribution">
         Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
-        <a href="https://www.linkedin.com/in/samuelsunmonu">CodeBstack</a>.
+        <a href="a9536d8359307d506900e8e29d79b2db" target="_blank">Frontend Mentor</a>. Coded by
+        <a href="e663d4908a4608a76f99dc8f7de1bdf2">CodeBstack</a>.
       </div>
     </section>
   </body>

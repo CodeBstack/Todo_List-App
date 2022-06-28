@@ -269,7 +269,7 @@ p {
   }
   .area {
     margin-top: -70px;
-    width: 85%;
+    width: 80%;
   }
   .box {
     width: 85%;

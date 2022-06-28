@@ -564,18 +564,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //     // completedTodo(listKey);
 //   }
 // });
-// const completedTodo = function (key) {
-//   todoList = todoList.filter(todo => {
-//     if (!todo.checked) return;
-//     complete.push(todo);
-//   });
-//   console.log(complete);
-//   // renderTodo(complete[0]
-// };
-// completed.addEventListener('click', function (e) {
-//   const listKey = todoList.map(todo => todo.id);
-//   completedTodo(listKey);
-// });
 },{}]},{},["c0741485ebfb990a19aec37737973ed5","c00e607576b6da73f3471278d158f50f"], null)
 
 //# sourceMappingURL=To-do List.3706b05f.js.map

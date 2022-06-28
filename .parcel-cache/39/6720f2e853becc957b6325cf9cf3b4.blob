@@ -519,6 +519,19 @@ form.addEventListener('submit', function (e) {
   formInput.value = '';
   formInput.focus();
 });
+
+const completedTodo = function (key) {
+  todoList = todoList.filter(todo => {
+    if (!todo.checked) return;
+    complete.push(todo);
+  });
+  console.log(complete); // renderTodo(complete[0]
+};
+
+completed.addEventListener('click', function (e) {
+  const listKey = todoList.map(todo => todo.id);
+  completedTodo(listKey);
+});
 list.addEventListener('click', function (e) {
   // to mark completed task
   if (e.target.classList.contains('tick')) {
@@ -563,18 +576,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //     // console.log(listKey);
 //     // completedTodo(listKey);
 //   }
-// });
-// const completedTodo = function (key) {
-//   todoList = todoList.filter(todo => {
-//     if (!todo.checked) return;
-//     complete.push(todo);
-//   });
-//   console.log(complete);
-//   // renderTodo(complete[0]
-// };
-// completed.addEventListener('click', function (e) {
-//   const listKey = todoList.map(todo => todo.id);
-//   completedTodo(listKey);
 // });
 },{}]},{},["c0741485ebfb990a19aec37737973ed5","c00e607576b6da73f3471278d158f50f"], null)
 

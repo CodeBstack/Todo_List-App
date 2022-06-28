@@ -269,10 +269,10 @@ p {
   }
   .area {
     margin-top: -70px;
-    width: 85%;
+    width: 80%;
   }
   .box {
-    width: 85%;
+    width: 90%;
     margin-top: -100px;
   }
   .empty-state {
