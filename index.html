@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
@@ -25,26 +26,30 @@
     <title>Frontend Mentor | Todo app</title>
   </head>
   <body class="body">
-    <section class="container">
-      <div class="area">
-        <div class="preview-heading">
+    <!-- <div class="img">
+      <img src="./images/bg-mobile-light.jpg" alt="" />
+    </div> -->
+    <section id="section">
+      <div class="preview-heading">
+        <div class="heading-text">
           <h3>TODO</h3>
-
-          <div class="toggle-theme">
-            <div class="toggle-theme-1"></div>
-            <div class="toggle-theme-2"></div>
-          </div>
         </div>
 
-        <form class="create-todo form">
-          <input
-            autofocus
-            type="text"
-            placeholder="Create a todo..."
-            class="create-todo__field form__input"
-          />
-        </form>
+        <div class="toggle-theme">
+          <div class="toggle-theme-1"></div>
+          <div class="toggle-theme-2"></div>
+        </div>
       </div>
+
+      <form class="create-todo form">
+        <input
+          autofocus
+          type="text"
+          placeholder="Create a todo..."
+          class="create-todo__field form__input"
+        />
+      </form>
+
       <div class="box">
         <ul class="todo-lists"></ul>
         <div class="empty-state">

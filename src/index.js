@@ -128,7 +128,6 @@ list.addEventListener('click', function (e) {
   // to mark completed task
   if (e.target.classList.contains('tick')) {
     const listKey = e.target.parentElement.dataset.key;
-    // console.log(listKey);
 
     toggle(listKey);
   }

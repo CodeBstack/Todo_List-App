@@ -14,42 +14,44 @@ body {
   font-weight: 500;
   color: #fff;
   line-height: 1.9;
-  max-height: 100vh;
-  background-image: url(../images/bg-desktop-light.jpg);
-  background-size: contain;
-  background-repeat: repeat-x;
+  /* max-height: 100vh; */
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-size: 100% 30%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dark {
-  background-image: url(../images/bg-desktop-dark.jpg);
+  background-image: url(../images/bg-mobile-dark.jpg);
   /* background-position-y: ; */
-  background-size: contain;
-  background-repeat: repeat-x;
+  background-size: 100% 30%;
+  background-repeat: no-repeat;
   background-color: #181824;
 }
 
-.container {
-  width: 100%;
-  height: 100vh;
+#section {
+  width: 85%;
+  min-height: 100vh;
+  position: relative;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   flex-direction: column;
-  /* position: relative; */
-}
-
-.area {
-  border-radius: 10px;
-  margin: 0px 0 30px 0px;
-  width: 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 .preview-heading {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -20%);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 25px;
   font-weight: 500;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 
 .toggle-theme-1 {
@@ -69,6 +71,11 @@ body {
 
 /* Input form */
 .create-todo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  width: 100%;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
@@ -97,21 +104,20 @@ body {
 
 /* LISTS */
 .box {
-  flex-basis: 1%;
+  /* flex-basis: 80%; */
   box-shadow: 3px 3px 8px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  width: 50%;
-  /* margin-top: -120px; */
-  /* max-height: 70%; */
   display: flex;
   flex-direction: column;
-  /* flex-grow: 1; */
+  margin-bottom: 3rem;
   background-color: #ffffff;
+  position: relative;
+  width: 100%;
 }
 
 .todo-lists {
   color: hsl(235, 19%, 35%);
-  margin-top: 10px;
+  /* margin-bottom: 2rem; */
   list-style-type: none;
 }
 
@@ -127,10 +133,6 @@ body {
 .todo-item span {
   flex-basis: 80%;
   margin-left: 10px;
-  display: flex;
-  /* justify-content:flex-start ; */
-  /* flex-wrap: wrap; */
-  /* margin-right: 10px; */
 }
 
 .done span {
@@ -187,13 +189,12 @@ input[type='checkbox'] {
 }
 
 .box .list-footer {
+  position: static;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-top: 0px; */
   padding: 8px 20px;
   color: hsl(236, 9%, 61%);
-  /* border-top: 0.1px solid #000; */
 }
 
 .footer-nav {
@@ -257,33 +258,17 @@ p {
   display: flex;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (min-width: 640px) {
   body {
-    background-image: url(../images/bg-mobile-light.jpg);
+    background-image: url(../images/bg-desktop-light.jpg);
     font-size: 15px;
-    /* width: 80vw; */
+  }
+
+  #section {
+    width: 60%;
   }
 
   .dark {
-    background-image: url(../images/bg-mobile-dark.jpg);
-  }
-  .area {
-    margin-top: -70px;
-    width: 85%;
-  }
-  .box {
-    width: 85%;
-    margin-top: -100px;
-  }
-  .empty-state {
-    padding: 10px;
-  }
-
-  .list-footer {
-    flex-basis: 10%;
-    padding: 0;
-  }
-  .footer-nav-1 {
-    font-size: 10px;
+    background-image: url(../images/bg-desktop-dark.jpg);
   }
 }
